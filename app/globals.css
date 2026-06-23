@@ -1,0 +1,278 @@
+/* ============================================================================
+   DNA Card Vault — Design System
+   Tokens + the 3 fonts are the system; everything composes from them.
+   Rule: always use tokens, never raw hex, so theming + accents keep working.
+   ============================================================================ */
+
+/* ---- Accent (brand) ramps — swappable via [data-accent=…] ---------------- */
+:root,
+[data-accent="purple"] {
+  --br: #7f77dd;   /* brand */
+  --brd: #4f47a8;  /* deep */
+  --brl: #a39cf0;  /* light */
+  --brm: #6a62c4;  /* mid */
+}
+[data-accent="teal"]    { --br:#2bb6a8; --brd:#1c7d73; --brl:#67e0d4; --brm:#239b8f; }
+[data-accent="blue"]    { --br:#5b8def; --brd:#3a63bf; --brl:#9bbcff; --brm:#4a78d8; }
+[data-accent="gold"]    { --br:#d4a93a; --brd:#a07d1c; --brl:#f0d27a; --brm:#bf9530; }
+[data-accent="crimson"] { --br:#e0556b; --brd:#a8344a; --brl:#f0909e; --brm:#c8455a; }
+
+/* ---- Semantic colors (constant across themes) ---------------------------- */
+:root {
+  --ok: #2dbf8a;    /* gains / positive */
+  --no: #f06060;    /* losses / negative */
+  --wn: #f0a040;    /* warning / amber */
+  --bl: #60a0f0;    /* info */
+  --gold: #f5c542;  /* premium / supporter */
+
+  --r: 10px;        /* default radius */
+  --r-sm: 7px;
+  --maxw: 1240px;   /* content max width cap */
+  --sb: 58px;       /* sidebar collapsed width */
+  --sb-open: 200px;
+}
+
+/* ---- Themes — surface/border/text ramps via [data-theme=…] --------------- */
+[data-theme="dark"] {
+  --bg: #0d0b18;
+  --sf: #16131f;
+  --sf2: #1d1929;
+  --sf3: #262134;
+  --bo: #2a2540;
+  --bo2: #372f54;
+  --t1: #f0eef7;
+  --t2: #b6b0cc;
+  --t3: #807a96;
+  --sh: 0 6px 24px rgba(0, 0, 0, 0.45);
+}
+[data-theme="midnight"] {
+  --bg: #06050d;
+  --sf: #0d0b16;
+  --sf2: #141120;
+  --sf3: #1b1729;
+  --bo: #221d36;
+  --bo2: #2f2748;
+  --t1: #ece9f5;
+  --t2: #a8a2c2;
+  --t3: #6f6a89;
+  --sh: 0 6px 24px rgba(0, 0, 0, 0.6);
+}
+[data-theme="light"] {
+  --bg: #f4f2fb;
+  --sf: #ffffff;
+  --sf2: #f7f5fd;
+  --sf3: #efebf9;
+  --bo: #e2def0;
+  --bo2: #d2cce8;
+  --t1: #1a1726;
+  --t2: #4d4763;
+  --t3: #837d9c;
+  --sh: 0 6px 24px rgba(80, 70, 130, 0.12);
+}
+
+/* ---- Base ---------------------------------------------------------------- */
+* { box-sizing: border-box; }
+html, body { padding: 0; margin: 0; }
+body {
+  background: var(--bg);
+  color: var(--t1);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+h1, h2, h3, .display {
+  font-family: var(--font-display), var(--font-sans), sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+/* Numbers are sacred — monospace, formatted, never raw toFixed. */
+.mono, .num { font-family: var(--font-mono), ui-monospace, monospace; }
+
+/* ---- Buttons ------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;            /* touch target */
+  padding: 0 18px;
+  border-radius: var(--r);
+  border: none;
+  background: var(--br);
+  color: #fff;
+  font-family: var(--font-sans), sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.05s ease;
+}
+.btn:hover { background: var(--brm); }
+.btn:active { transform: translateY(1px); }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.tool {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 28px;
+  padding: 0 10px;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--bo2);
+  background: transparent;
+  color: var(--t2);
+  font-size: 12px;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+.tool:hover { color: var(--t1); border-color: var(--br); }
+
+/* ---- Chip (toggle) & pill (status/label) --------------------------------- */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 30px;
+  padding: 0 12px;
+  border-radius: 999px;
+  border: 1px solid var(--bo2);
+  background: transparent;
+  color: var(--t2);
+  font-size: 12.5px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.chip:hover { color: var(--t1); border-color: var(--brm); }
+.chip.on {
+  background: var(--br);
+  border-color: var(--br);
+  color: #fff;
+}
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--bo);
+  background: var(--sf2);
+  color: var(--t2);
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+}
+.pill.ok { color: var(--ok); border-color: color-mix(in srgb, var(--ok) 40%, transparent); }
+.pill.no { color: var(--no); border-color: color-mix(in srgb, var(--no) 40%, transparent); }
+
+/* ---- Inputs -------------------------------------------------------------- */
+.fi, .si, .pfs {
+  height: 40px;
+  padding: 0 12px;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--bo2);
+  background: var(--sf);
+  color: var(--t1);
+  font-family: var(--font-sans), sans-serif;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+.fi:focus, .si:focus, .pfs:focus { border-color: var(--br); }
+.si { width: 100%; padding-left: 38px; }       /* search input (icon room) */
+.pfs { height: 32px; font-size: 12.5px; }      /* compact filter-select */
+
+/* ---- Surfaces ------------------------------------------------------------ */
+.card {
+  background: var(--sf);
+  border: 1px solid var(--bo);
+  border-radius: var(--r);
+  box-shadow: var(--sh);
+}
+
+/* ---- Card tile (catalog/collection grid unit) ---------------------------- */
+/* The card art is the hero — never cover it; variant chip goes BELOW the thumb. */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 14px;
+}
+.xc {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px;
+  border: 1px solid var(--bo);
+  border-radius: var(--r);
+  background: var(--sf);
+  cursor: pointer;
+  transition: border-color 0.15s, transform 0.08s;
+}
+.xc:hover { border-color: var(--brm); transform: translateY(-2px); }
+.xc.owned { border-color: color-mix(in srgb, var(--ok) 55%, transparent); }
+.xi {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  border-radius: var(--r-sm);
+  overflow: hidden;
+  background: var(--sf3);
+}
+.xi img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.xn { font-size: 13px; font-weight: 600; line-height: 1.25; }
+.xs { font-size: 10.5px; color: var(--t3); }
+.vc {
+  font-family: var(--font-mono), monospace;
+  font-size: 13px;
+  color: var(--ok);
+  font-weight: 500;
+}
+.owned-check {
+  position: absolute;
+  top: 6px; right: 6px;
+  width: 22px; height: 22px;
+  display: grid; place-items: center;
+  border-radius: 999px;
+  background: var(--ok);
+  color: #06120d;
+  font-size: 13px;
+}
+.quick-add {
+  position: absolute;
+  bottom: 6px; right: 6px;
+  width: 28px; height: 28px;
+  display: grid; place-items: center;
+  border-radius: 999px;
+  border: none;
+  background: var(--br);
+  color: #fff;
+  opacity: 0;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+.xi:hover .quick-add { opacity: 1; }
+
+/* ---- App layout: left sidebar + capped content --------------------------- */
+.app { display: flex; min-height: 100vh; }
+#sb {
+  width: var(--sb);
+  flex-shrink: 0;
+  border-right: 1px solid var(--bo);
+  background: var(--sf);
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+.main { flex: 1; min-width: 0; }
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 22px 26px; }
+
+/* value tones */
+.up { color: var(--ok); }
+.down { color: var(--no); }
+
+@media (max-width: 720px) {
+  #sb { position: fixed; left: 0; top: 0; z-index: 40; transform: translateX(-100%); }
+  #sb.open { transform: translateX(0); }
+  .wrap { padding: 16px; }
+}
