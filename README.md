@@ -16,7 +16,7 @@ from day one — see `docs/ARCHITECTURE.md`.
 ## Getting started
 1. `npm install`
 2. Copy `.env.example` to `.env.local` and fill in values.
-3. Apply `supabase/schema.sql` in the Supabase SQL editor.
+3. Apply `supabase/schema.sql` then `supabase/schema_social.sql` in the Supabase SQL editor.
 4. `npm run dev` and open http://localhost:3000
 
 ## Conventions (non-negotiable)

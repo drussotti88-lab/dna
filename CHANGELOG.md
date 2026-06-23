@@ -2,6 +2,18 @@
 
 _User-facing. Plain, direct, a little proud — written for a collector, not a developer._
 
+## v0.6.0 — Community & marketplace (2026-06-23)
+The vault gets social, and you can transact inside it.
+
+- **Public profiles** — claim a handle, write a bio, and show off your collection at /u/your-handle
+  (private by default; flip it on in Settings).
+- **Marketplace** — list cards straight from your collection, browse what others are selling, and
+  send offers. When a seller accepts, the card moves into the buyer&apos;s collection automatically.
+- **Trust** — reviews and a trust score on profiles.
+- **Vault Coins** — earn coins on completed deals (and achievements to come); your balance lives in
+  Settings.
+- **Supporter (Pro)** — link Patreon to unlock the scanner and deeper tools.
+
 ## v0.5.0 — Intelligence (2026-06-23)
 The part no spreadsheet can do. These are market-data tools, not financial advice.
 

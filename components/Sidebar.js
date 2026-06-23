@@ -13,6 +13,8 @@ const NAV = [
   { href: "/picks", icon: "ti-trending-up", label: "Vault Picks" },
   { href: "/grading", icon: "ti-microscope", label: "Grading Lab" },
   { href: "/intel", icon: "ti-chart-candle", label: "Intel" },
+  { href: "/market", icon: "ti-building-store", label: "Market" },
+  { href: "/settings", icon: "ti-settings", label: "Settings" },
 ];
 
 export default function Sidebar() {

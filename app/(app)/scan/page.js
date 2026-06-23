@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import CardTile from "@/components/CardTile";
 
 export default function ScanPage() {
@@ -85,8 +86,12 @@ export default function ScanPage() {
       <h1 className="display" style={{ fontSize: 24, marginBottom: 6 }}>
         Scan a card
       </h1>
-      <p style={{ color: "var(--t2)", marginBottom: 16 }}>
+      <p style={{ color: "var(--t2)", marginBottom: 10 }}>
         Point your camera at a card (English or Japanese) to identify and add it. Or upload a photo.
+      </p>
+      <p className="pill" style={{ color: "var(--gold)", marginBottom: 16 }}>
+        <i className="ti ti-sparkles" /> Pro feature ·{" "}
+        <Link href="/settings" style={{ color: "var(--gold)" }}>become a supporter</Link>
       </p>
 
       <div className="card" style={{ padding: 16 }}>
