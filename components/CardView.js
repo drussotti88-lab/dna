@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import CardImage from "@/components/CardImage";
 import { value, isSpecialFormat, GRADE_MULTIPLIER } from "@/lib/pricing";
+import { vaultScore } from "@/lib/intel";
 import { fmtUSD, fmtPct, fmtNum } from "@/lib/format";
 import PriceHistoryChart from "@/components/PriceHistoryChart";
 import AddCopy from "@/components/AddCopy";
@@ -56,6 +57,8 @@ export default function CardView({ card, comps = [] }) {
 
   const rawMarket =
     (variant?.prices || []).find((p) => p.type === "raw")?.market ?? null;
+
+  const score = vaultScore(card, { comps });
 
   return (
     <>
@@ -167,6 +170,9 @@ export default function CardView({ card, comps = [] }) {
                   30d {fmtPct(trends.days_30.percent_change)}
                 </span>
               )}
+              <span className="pill" title="Composite of value, momentum, liquidity & grading upside">
+                <i className="ti ti-shield-bolt" /> Vault Score {score}
+              </span>
             </div>
             {v.note && (
               <p className="xs" style={{ marginTop: 8, color: "var(--wn)" }}>

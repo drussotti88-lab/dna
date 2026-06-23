@@ -2,6 +2,21 @@
 
 _User-facing. Plain, direct, a little proud — written for a collector, not a developer._
 
+## v0.5.0 — Intelligence (2026-06-23)
+The part no spreadsheet can do. These are market-data tools, not financial advice.
+
+- **Vault Picks** — grading-flip opportunities ranked by expected value after fees, with momentum at
+  a glance and a one-line thesis on each.
+- **Grading Lab** — a full table of what&apos;s +EV to send in: raw price, expected PSA value, fee,
+  net EV, ROI, and whether the math is backed by real graded prices or estimated.
+- **Intel** — what&apos;s heating up and cooling off over 30 days, plus a short market pulse (written
+  by AI when configured, with a sensible fallback otherwise).
+- **Vault Score** — a single 0–100 read on each card blending value, momentum, liquidity, and
+  grading upside, shown right on the card page.
+
+_All of this is built on the shared price + trend + sold-comp store, so it gets sharper as more
+cards enter the vault._
+
 ## v0.4.0 — Import & scan (2026-06-23)
 Two fast ways to get your cards in.
 
