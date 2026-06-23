@@ -2,6 +2,19 @@
 
 _User-facing. Plain, direct, a little proud — written for a collector, not a developer._
 
+## v0.3.0 — Your collection (2026-06-23)
+The vault is now yours. Sign in and start tracking what you own.
+
+- **Sign in** — email + password or a one-tap email link. Your data is private to you.
+- **Add copies** — from any card, add a raw or graded copy with quantity, cost, and the date you got
+  it, into a portfolio. The card's full details and prices are pulled into your vault automatically
+  the moment you add it.
+- **Portfolios** — group your cards however you like; a default collection is created for you.
+- **Collection view** — total value, cost basis, and profit/loss at a glance, plus a filterable,
+  sortable grid of everything you own. Flag and filter copies that need review.
+- **Trustworthy numbers** — every value is read from one price store and run through one pricing
+  brain, so what you see in your collection matches the card pages exactly.
+
 ## v0.2.0 — Browse & the Card page (2026-06-23)
 You can now actually look things up. This is the first release you can click around in.
 

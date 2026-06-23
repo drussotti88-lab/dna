@@ -5,6 +5,7 @@ import CardImage from "@/components/CardImage";
 import { value, isSpecialFormat, GRADE_MULTIPLIER } from "@/lib/pricing";
 import { fmtUSD, fmtPct, fmtNum } from "@/lib/format";
 import PriceHistoryChart from "@/components/PriceHistoryChart";
+import AddCopy from "@/components/AddCopy";
 
 export default function CardView({ card, comps = [] }) {
   const variants = card.variants || [];
@@ -248,12 +249,16 @@ export default function CardView({ card, comps = [] }) {
       <div className="card" style={{ padding: 16, marginTop: 16 }}>
         <h3 style={{ fontSize: 14, marginBottom: 6 }}>Your copies</h3>
         <p className="xs">
-          Sign-in and adding copies arrive in the next phase. You&apos;ll be able to add raw or graded
-          copies per printing here, set quantity and cost, and pick a portfolio.
+          Add this printing to a portfolio — set quantity, cost, and acquired date. Graded copies use
+          the grader/grade selected above.
         </p>
-        <button className="btn" style={{ marginTop: 12 }} disabled>
-          <i className="ti ti-plus" /> Add with detail
-        </button>
+        <AddCopy
+          card={card}
+          variantKey={variantKey}
+          graded={graded}
+          company={company}
+          grade={grade}
+        />
       </div>
 
       <style jsx>{`

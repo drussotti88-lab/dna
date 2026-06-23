@@ -271,6 +271,29 @@ h1, h2, h3, .display {
 .up { color: var(--ok); }
 .down { color: var(--no); }
 
+/* sidebar account control */
+.acct {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 40px;
+  padding: 0 10px;
+  border: none;
+  background: transparent;
+  color: var(--t2);
+  cursor: pointer;
+  border-radius: var(--r-sm);
+  white-space: nowrap;
+  width: 100%;
+  font-family: var(--font-sans), sans-serif;
+  font-size: 13.5px;
+}
+.acct i { font-size: 19px; width: 22px; text-align: center; flex-shrink: 0; }
+.acct:hover { background: var(--sf2); color: var(--t1); }
+.acct-label { opacity: 0; transition: opacity 0.15s; }
+#sb:hover .acct-label { opacity: 1; }
+@media (max-width: 720px) { .acct-label { opacity: 1; } }
+
 @media (max-width: 720px) {
   #sb { position: fixed; left: 0; top: 0; z-index: 40; transform: translateX(-100%); }
   #sb.open { transform: translateX(0); }

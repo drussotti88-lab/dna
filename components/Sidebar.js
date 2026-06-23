@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import AccountButton from "@/components/AccountButton";
 
 // Left sidebar nav: icon + tooltip, 58px collapsed / 200px open.
 // Collapses to a slide-over on mobile.
@@ -51,6 +52,9 @@ export default function Sidebar() {
               </Link>
             );
           })}
+        </div>
+        <div style={{ marginTop: "auto" }}>
+          <AccountButton />
         </div>
       </nav>
 
