@@ -2,6 +2,18 @@
 
 _User-facing. Plain, direct, a little proud — written for a collector, not a developer._
 
+## v0.4.0 — Import & scan (2026-06-23)
+Two fast ways to get your cards in.
+
+- **CSV import** — drop in a Collectr (or similar) export and we resolve every card to its catalog
+  entry, pulling in image, id, and price. Anything we&apos;re not confident about is flagged "needs
+  review" rather than guessed — so a wrong card never slips in silently. Big files import in batches
+  with a running tally of added / review / unresolved.
+- **Camera scan** — point your camera at a card (English or Japanese) and we identify it, translate
+  the name, and show catalog matches to add in a tap. You can also upload a photo.
+- **Centering calculator** — punch in the border widths to get a centering read, one of the biggest
+  factors in a grade.
+
 ## v0.3.0 — Your collection (2026-06-23)
 The vault is now yours. Sign in and start tracking what you own.
 
